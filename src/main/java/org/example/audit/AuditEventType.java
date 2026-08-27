@@ -1,9 +1,5 @@
 package org.example.audit;
 
-/**
- * DEPRECATED: AuditEventType moved to org.example.notifications.AuditEventType
- */
-@Deprecated
-public enum AuditEventType {
-    // Kept empty to discourage use; please switch to org.example.notifications.AuditEventType
-}
+// Implementation moved to src/archives/org/example/audit. This file intentionally left blank to
+// remove the implementation from the main source tree. See src/archives/org/example/audit/AuditEventType.java
+// for the archived original.

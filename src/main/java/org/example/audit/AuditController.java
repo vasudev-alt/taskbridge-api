@@ -1,16 +1,5 @@
 package org.example.audit;
 
-import jakarta.servlet.http.HttpServletRequest;
-
-/**
- * DEPRECATED: AuditController moved to org.example.notifications.AuditController
- * Please update imports to use org.example.notifications.AuditController and remove this file.
- */
-@Deprecated
-public class AuditController {
-
-    // Deprecated stub to avoid immediate breakage. Controller implementation moved.
-    public void recordAuditEvent(HttpServletRequest request, Object auditEventRequest) {
-        throw new UnsupportedOperationException("Use org.example.notifications.AuditController.recordAuditEvent");
-    }
-}
+// Implementation moved to src/archives/org/example/audit. This file intentionally left blank to
+// remove the implementation from the main source tree. See src/archives/org/example/audit/AuditController.java
+// for the archived original.

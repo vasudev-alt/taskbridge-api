@@ -1,9 +1,5 @@
 package org.example.audit;
 
-/**
- * DEPRECATED: AuditEventRequest moved to org.example.notifications.AuditEventRequest
- */
-@Deprecated
-public class AuditEventRequest {
-    // Use org.example.notifications.AuditEventRequest
-}
+// Implementation moved to src/archives/org/example/audit. This file intentionally left blank to
+// remove the implementation from the main source tree. See src/archives/org/example/audit/AuditEventRequest.java
+// for the archived original.

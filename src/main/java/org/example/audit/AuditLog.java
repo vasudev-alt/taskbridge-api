@@ -1,11 +1,5 @@
 package org.example.audit;
 
-/**
- * DEPRECATED: The audit implementation was moved to org.example.notifications.AuditLogEntry
- * This stub remains temporarily to avoid breaking imports. Please update references to
- * org.example.notifications.AuditLogEntry and remove this file.
- */
-@Deprecated
-public class AuditLog {
-    // This class intentionally left minimal. Use org.example.notifications.AuditLogEntry instead.
-}
+// Implementation moved to src/archives/org/example/audit. This file intentionally left blank to
+// remove the implementation from the main source tree. See src/archives/org/example/audit/AuditLog.java
+// for the archived original.

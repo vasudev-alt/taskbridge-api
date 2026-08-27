@@ -1,11 +1,5 @@
 package org.example.audit;
 
-import java.util.UUID;
-
-/**
- * DEPRECATED: AuditLogRepository moved to org.example.notifications.AuditLogRepository
- */
-@Deprecated
-public interface AuditLogRepository {
-    // Repository moved to org.example.notifications.AuditLogRepository
-}
+// Implementation moved to src/archives/org/example/audit. This file intentionally left blank to
+// remove the implementation from the main source tree. See src/archives/org/example/audit/AuditLogRepository.java
+// for the archived original.
