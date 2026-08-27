@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class NotificationAuditService {
@@ -14,7 +15,7 @@ public class NotificationAuditService {
     private NotificationRepository notificationRepository;
 
     @Autowired
-    private AuditLogRepository auditLogRepository;
+    private NotificationAuditLogRepository notificationAuditLogRepository;
 
     public Notification createNotification(UUID projectId, String message) {
         Notification notification = new Notification();
@@ -31,11 +32,17 @@ public class NotificationAuditService {
         auditLog.setChangedBy(changedBy);
         auditLog.setTimestamp(LocalDateTime.now());
         auditLog.setDetails(details);
-        return auditLogRepository.save(auditLog);
+        return notificationAuditLogRepository.save(auditLog);
     }
 
     public List<AuditLog> getAuditLogs(UUID projectId, LocalDateTime startDate, LocalDateTime endDate, String eventType) {
-        // Implement filtering logic based on parameters
-        return auditLogRepository.findByProjectIdAndFilters(projectId, startDate, endDate, eventType);
+        // Fetch by project and then apply optional filters in-memory for simplicity
+        List<AuditLog> all = notificationAuditLogRepository.findByProjectIdOrderByTimestampDesc(projectId);
+
+        return all.stream()
+                .filter(a -> (startDate == null || !a.getTimestamp().isBefore(startDate)))
+                .filter(a -> (endDate == null || !a.getTimestamp().isAfter(endDate)))
+                .filter(a -> (eventType == null || eventType.isEmpty() || eventType.equals(a.getEventType())))
+                .collect(Collectors.toList());
     }
 }
